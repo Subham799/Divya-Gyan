@@ -1,0 +1,465 @@
+/* Basic Reset & Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Font & Theme Variables */
+:root {
+    /* Light Theme (Default) */
+    --background-color: #fdfaf6; /* Soft Cream */
+    --text-color: #333333; /* Dark Grey */
+    --hover-bg-color: rgba(0, 0, 0, 0.05); /* Light hover for text */
+    --hover-text-color: #2575fc; /* Primary blue for hover */
+    --border-color: rgba(0, 0, 0, 0.1); /* Subtle border */
+    --glass-background: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --primary-gradient: linear-gradient(145deg, rgba(29, 78, 216, 0.9), rgba(91, 33, 182, 0.8)); /* Darker for contrast */
+    --neon-blue: #00C2FF; /* Electric Blue */
+    --neon-green: #39FF14; /* Neon Green */
+    --icon-color: #2575fc; /* Default icon color */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --background-color: #1a1a1a; /* Dark Grey */
+    --text-color: #ffffff; /* White */
+    --hover-bg-color: rgba(255, 255, 255, 0.1);
+    --hover-text-color: #00C2FF; /* Neon Blue for hover */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-background: rgba(0, 0, 0, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
+    --primary-gradient: linear-gradient(145deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.7)); /* Slightly lighter for dark mode */
+    --icon-color: #00C2FF;
+}
+
+/* Sepia Theme */
+[data-theme="sepia"] {
+    --background-color: #f4ece1; /* Sepia background */
+    --text-color: #4a3c2f; /* Dark Sepia text */
+    --hover-bg-color: rgba(74, 60, 47, 0.05);
+    --hover-text-color: #8c5e3d; /* Warm brown for hover */
+    --border-color: rgba(74, 60, 47, 0.1);
+    --glass-background: rgba(255, 240, 220, 0.7);
+    --glass-border: rgba(74, 60, 47, 0.2);
+    --glass-shadow: rgba(74, 60, 47, 0.15);
+    --primary-gradient: linear-gradient(145deg, rgba(140, 94, 61, 0.9), rgba(180, 120, 70, 0.8));
+    --icon-color: #8c5e3d;
+}
+
+/* Night Mode (Deep Dark) */
+[data-theme="night"] {
+    --background-color: #0d0d0d; /* Very Dark Grey */
+    --text-color: #b0b0b0; /* Light Grey */
+    --hover-bg-color: rgba(255, 255, 255, 0.08);
+    --hover-text-color: #39FF14; /* Neon Green for hover */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --glass-background: rgba(0, 0, 0, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: rgba(0, 0, 0, 0.6);
+    --primary-gradient: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8));
+    --neon-blue: #39FF14; /* Switched to neon green for accent */
+    --neon-green: #00C2FF; /* Switched to neon blue for accent */
+    --icon-color: #b0b0b0;
+}
+
+body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: background 0.6s ease-in-out, color 0.6s ease-in-out;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    color: var(--text-color); /* Ensure headings adapt */
+}
+
+/* Global Transitions */
+.glass-card, .nav-link, .social-icons a, .theme-toggle, .orb-icon, .search-input, .search-dropdown a, .mobile-menu a {
+    transition: all 0.4s ease-in-out;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px var(--glass-shadow);
+    border-radius: 12px;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px var(--glass-shadow), 0 0 10px var(--neon-blue);
+}
+
+/* Header & Navigation */
+header {
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.nav-link:hover {
+    color: var(--hover-text-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--hover-text-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    background: var(--background-color); /* Matches page background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu a {
+    color: var(--text-color);
+}
+
+.mobile-menu a:hover {
+    background-color: var(--hover-bg-color);
+}
+
+
+/* News Ticker */
+.news-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--primary-gradient);
+    color: var(--text-light);
+    padding: 10px 0;
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: ticker 20s linear infinite; /* Adjust speed as needed */
+    padding-left: 100%; /* Start off-screen */
+}
+
+.ticker-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Search Bar & Dropdown */
+.search-container {
+    position: relative;
+    z-index: 40; /* Above general content, below header/orb */
+}
+
+.search-input {
+    background-color: var(--glass-background); /* Use glass background for input */
+    border: 1px solid var(--glass-border);
+    color: var(--text-color); /* Text color inside input */
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 8px); /* Below the input with some spacing */
+    left: 0;
+    right: 0;
+    background: var(--glass-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px var(--glass-shadow);
+    max-height: 300px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 50; /* Ensure it's above other content */
+}
+
+.search-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.search-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.search-dropdown a:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+}
+
+
+/* Content Grids */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for better fit */
+    gap: 1.5rem;
+    animation: fadeInUp 0.8s ease-out forwards; /* Apply animation to content grids */
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Sidebar */
+.sidebar {
+    position: relative; /* Allows for absolute positioning of toggle button if needed */
+    height: fit-content; /* Adjust to content height */
+    overflow-y: auto; /* Enable scrolling for long lists */
+    max-height: calc(100vh - 200px); /* Adjust max height for scrolling sidebar */
+}
+
+.sidebar ul a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.sidebar ul a:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+}
+
+/* Mobile Sidebar (Hamburger Menu) */
+@media (max-width: 767px) {
+    .sidebar {
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px; /* Wider sidebar for mobile */
+        background: var(--background-color); /* Match body background for continuity */
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 60; /* Higher than other content */
+        padding-top: 80px; /* To account for fixed header */
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    #sidebar-toggle {
+        display: block; /* Show on mobile */
+    }
+}
+@media (min-width: 768px) {
+    #sidebar-toggle {
+        display: none; /* Hide on desktop */
+    }
+}
+
+
+/* Social Media Section */
+.social-section {
+    background: var(--primary-gradient);
+    color: var(--text-light); /* Text always light on this gradient */
+}
+
+.social-section .social-icons a {
+    color: var(--text-light); /* Icons initially light */
+    transition: all 0.3s ease-in-out;
+}
+
+.social-section .social-icons a:hover {
+    color: var(--neon-green); /* Hover color for icons */
+    transform: scale(1.2);
+}
+
+.social-section input {
+    border: none;
+}
+
+.social-section button {
+    background: var(--neon-green);
+    color: #333; /* Ensure contrast for button text */
+    font-weight: bold;
+}
+
+.social-section button:hover {
+    background: var(--neon-blue);
+    color: #fff;
+}
+
+/* Footer (uses social-section base styles but ensures text color adapts) */
+footer.social-section {
+    background: var(--background-color); /* Footer background adapts to theme */
+    color: var(--text-color); /* Footer text adapts to theme */
+    border-top: 1px solid var(--border-color); /* Subtle separator */
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.02);
+}
+
+footer.social-section .text-xl,
+footer.social-section .font-bold,
+footer.social-section p {
+    color: var(--text-color); /* Ensure these elements also adapt */
+}
+
+footer.social-section a {
+    color: var(--text-color); /* Links within footer adapt */
+}
+footer.social-section a:hover {
+    color: var(--hover-text-color); /* Link hover in footer adapts */
+}
+
+footer.social-section .border-t {
+    border-color: var(--border-color);
+}
+
+
+/* Animated Navigation Orb */
+.nav-orb {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), 0 0 25px var(--neon-blue); /* Glowing effect */
+    background: var(--primary-gradient);
+    border: none; /* No border for orb, just glow */
+    transition: width 0.4s ease-out, height 0.4s ease-out, border-radius 0.4s ease-out, transform 0.4s ease-out, opacity 0.4s ease-out, box-shadow 0.4s ease-out;
+    cursor: pointer;
+    z-index: 100; /* Ensure orb is on top */
+}
+
+.nav-orb.active {
+    width: 200px; /* Example expanded size */
+    height: 200px;
+    border-radius: 50%; /* Remains circular or can expand to square */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 40px var(--neon-green); /* Stronger glow when active */
+}
+
+.nav-orb .fas {
+    color: var(--text-light); /* Icon always light */
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.nav-orb.active .fas {
+    transform: rotate(180deg); /* Rotate compass icon */
+    opacity: 0; /* Hide compass icon to reveal menu */
+}
+
+.nav-orb-menu {
+    position: absolute;
+    bottom: calc(100% + 1rem); /* Position above the orb */
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+    pointer-events: none; /* Prevents interaction when hidden */
+    min-width: 180px; /* Ensures menu has enough space */
+    z-index: 90; /* Below orb, above content */
+}
+
+.nav-orb.active .nav-orb-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; /* Allows interaction when active */
+}
+
+.nav-orb-menu ul li a {
+    color: var(--text-color); /* Menu item text adapts to theme */
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.nav-orb-menu ul li a:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    bottom: 80px; /* Above the orb */
+    left: 8px; /* On the left side */
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--primary-gradient);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 95; /* Below orb, above other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 10px var(--neon-blue);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav-orb {
+        width: 14vw; /* Responsive size */
+        height: 14vw;
+        bottom: 4vw;
+        right: 4vw;
+    }
+    .theme-toggle {
+        width: 12vw;
+        height: 12vw;
+        bottom: 20vw; /* Position above smaller orb */
+        left: 4vw;
+    }
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .news-ticker {
+        font-size: 0.8rem;
+        padding: 8px 0;
+    }
+    .search-container {
+        padding: 0 4vw; /* Responsive padding */
+    }
+    .social-section .flex {
+        flex-direction: column;
+    }
+    .social-section input, .social-section button {
+        width: 100%;
+        max-width: none;
+    }
+}

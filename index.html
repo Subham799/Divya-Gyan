@@ -1,0 +1,291 @@
+﻿<!-- index.html -->
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>दिव्य ज्ञान - आध्यात्मिक पोर्टल</title>
+    <meta
+      name="description"
+      content="दिव्य ज्ञान - नए भजन, कथाएँ, त्यौहार, और आध्यात्मिक विषय। एक आध्यात्मिक पोर्टल जो आपको शांति और प्रेरणा प्रदान करेगा।"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="दिव्य ज्ञान - आध्यात्मिक पोर्टल" />
+    <meta
+      property="og:description"
+      content="दिव्य ज्ञान - नए भजन, कथाएँ, त्यौहार, और आध्यात्मिक विषय। एक आध्यात्मिक पोर्टल जो आपको शांति और प्रेरणा प्रदान करेगा।"
+    />
+    <meta
+      property="og:image"
+      content="https://divyagyan.in/assets/images/logo.png"
+    />
+    <link rel="canonical" href="https://divyagyan.in/index.html" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Sans+Devanagari:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <header role="banner" class="glass-card sticky top-0 z-50">
+      <nav
+        role="navigation"
+        F
+        aria-label="Main Menu"
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="index.html" class="text-2xl font-bold logo">दिव्य ज्ञान</a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="nav-link">होम</a>
+          <a href="bhajans/index.html" class="nav-link">भजन</a>
+          <a href="kathayein/index.html" class="nav-link">कथाएँ</a>
+          <a href="tyohar/index.html" class="nav-link">त्योहार</a>
+          <a href="sant-charitra/index.html" class="nav-link">संत चरित्र</a>
+          <a href="pavitra-sthal/index.html" class="nav-link">पवित्र स्थल</a>
+          <a href="about-us.html" class="nav-link">हमारे बारे में</a>
+          <a href="contact.html" class="nav-link">संपर्क करें</a>
+        </div>
+        <button id="mobile-menu-toggle" class="md:hidden text-2xl text-current">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden bg-background-color p-4">
+        <a href="index.html" class="block py-2 px-4 hover:bg-hover-bg-color"
+          >होम</a
+        >
+        <a
+          href="bhajans/index.html"
+          class="block py-2 px-4 hover:bg-hover-bg-color"
+          >भजन</a
+        >
+        <a
+          href="kathayein/index.html"
+          class="block py-2 px-4 hover:bg-hover-bg-color"
+          >कथाएँ</a
+        >
+        <a
+          href="tyohar/index.html"
+          class="block py-2 px-4 hover:bg-hover-bg-color"
+          >त्योहार</a
+        >
+        <a
+          href="sant-charitra/index.html"
+          class="block py-2 px-4 hover:bg-hover-bg-color"
+          >संत चरित्र</a
+        >
+        <a
+          href="pavitra-sthal/index.html"
+          class="block py-2 px-4 hover:bg-hover-bg-color"
+          >पवित्र स्थल</a
+        >
+        <a href="about-us.html" class="block py-2 px-4 hover:bg-hover-bg-color"
+          >हमारे बारे में</a
+        >
+        <a href="contact.html" class="block py-2 px-4 hover:bg-hover-bg-color"
+          >संपर्क करें</a
+        >
+      </div>
+    </header>
+
+    <div class="news-ticker">
+      <div class="ticker-content"></div>
+    </div>
+
+    <section class="py-4">
+      <div class="search-container container mx-auto px-6">
+        <input
+          type="text"
+          id="search-input"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 bg-transparent text-current"
+          placeholder="यहाँ कुछ भी खोजें (जैसे 'शिव', 'रामायण', 'आरती')..."
+        />
+        <div id="search-dropdown" class="search-dropdown"></div>
+      </div>
+    </section>
+
+    <div
+      role="main"
+      aria-label="Main Content"
+      class="container mx-auto px-6 py-16 flex flex-col md:flex-row"
+    >
+      <main class="md:w-9/12 md:pr-8">
+        <section class="glass-card p-6 flex flex-col items-center text-center"
+          <h2 class="text-3xl font-bold mb-8">
+            आज के ट्रेंडिंग आध्यात्मिक विषय
+          </h2>
+          <div id="trending-content-grid" class="category-grid"></div>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-bold mb-8">नए भजन और कथाएँ</h2>
+          <div id="new-content-grid" class="category-grid"></div>
+        </section>
+      </main>
+
+      <aside
+        role="complementary"
+        aria-label="Main Categories Sidebar"
+        class="md:w-3/12 md:pl-8 mt-12 md:mt-0 sidebar glass-card p-6"
+      >
+        <h3 class="text-xl font-bold mb-4">सभी श्रेणियाँ</h3>
+        <ul id="global-sidebar-nav" class="space-y-2"></ul>
+        <div class="flex items-center justify-between mt-6">
+          <label for="theme-toggle" class="cursor-pointer">थीम बदलें:</label>
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full bg-blue-600 text-white"
+          >
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <section class="social-section py-16">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-white mb-8">हमसे जुड़ें</h2>
+        <div class="flex justify-center space-x-6 mb-8 social-icons">
+          <a
+            href="https://wa.me/yournumber"
+            target="_blank"
+            class="text-white hover:text-neon-green text-4xl"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a
+            href="https://t.me/yourchannel"
+            target="_blank"
+            class="text-white hover:text-neon-green text-4xl"
+            ><i class="fab fa-telegram-plane"></i
+          ></a>
+          <a
+            href="https://facebook.com/yourpage"
+            target="_blank"
+            class="text-white hover:text-neon-green text-4xl"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="mailto:contact@divyagyan.in"
+            class="text-white hover:text-neon-green text-4xl"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+        <p class="text-white mb-6">
+          हमारे समाचार पत्र की सदस्यता लें और नवीनतम अपडेट प्राप्त करें:
+        </p>
+        <form class="flex justify-center flex-wrap gap-4">
+          <input
+            type="email"
+            placeholder="अपना ईमेल यहाँ दर्ज करें"
+            class="p-3 rounded-lg outline-none flex-grow max-w-md bg-white text-gray-800"
+          />
+          <button
+            type="submit"
+            class="bg-neon-green text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-neon-blue transition-colors"
+          >
+            सदस्यता लें
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="social-section bg-background-color text-text-color">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">दिव्य ज्ञान</h3>
+            <p>
+              आध्यात्मिक ज्ञान को विश्व के साथ साझा करने का एक विनम्र प्रयास।
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">त्वरित लिंक</h4>
+            <ul>
+              <li class="mb-2">
+                <a href="about-us.html" class="hover:text-hover-text-color"
+                  >हमारे बारे में</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="contact.html" class="hover:text-hover-text-color"
+                  >संपर्क करें</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="privacy-policy.html"
+                  class="hover:text-hover-text-color"
+                  >गोपनीयता नीति</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">श्रेणियाँ</h4>
+            <ul>
+              <li class="mb-2">
+                <a href="bhajans/index.html" class="hover:text-hover-text-color"
+                  >भजन</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="kathayein/index.html"
+                  class="hover:text-hover-text-color"
+                  >कथाएँ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="tyohar/index.html" class="hover:text-hover-text-color"
+                  >त्योहार</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="sant-charitra/index.html"
+                  class="hover:text-hover-text-color"
+                  >संत चरित्र</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">संपर्क जानकारी</h4>
+            <p>ईमेल: contact@divyagyan.com</p>
+            <p>फोन: +91 123 456 7890</p>
+          </div>
+        </div>
+        <div class="border-t border-border-color mt-8 pt-6 text-center">
+          <p>© <span id="year"></span> दिव्य ज्ञान। सर्वाधिकार सुरक्षित।</p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="nav-orb"
+      class="nav-orb fixed bottom-8 right-8 w-16 h-16 rounded-full flex items-center justify-center cursor-pointer glass-card z-50"
+    >
+      <i class="fas fa-compass text-3xl text-current"></i>
+      <div
+        id="nav-orb-menu"
+        class="nav-orb-menu absolute bottom-full mb-4 opacity-0 invisible pointer-events-none"
+      >
+        <div class="glass-card p-4 rounded-lg shadow-lg">
+          <h4 class="font-bold mb-2 text-current">भजन श्रेणियाँ</h4>
+          <ul id="orb-bhajan-categories" class="space-y-2"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="assets/js/script.js" defer></script>
+  </body>
+</html>
